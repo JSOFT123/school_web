@@ -1,0 +1,267 @@
+/* VARIABLES */
+:root {
+    --default-border: 1px solid lightgray;
+    --shadow: 1px 1px 10px rgba(0,0,0,0.3);
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    display: flex!important;
+    flex-direction: column;
+    height: 100vh;
+    align-items: center;
+    place-content: center;
+    background-color: white;
+
+}
+body > img,
+body > h5 {
+    display: none;
+}
+
+main {
+    display: flex!important;
+    align-items: center;
+    width: 85%;
+    height: 80%;
+    margin: 0 auto;
+}
+
+main > div {
+    width: 100%;
+    height: 80vh;
+}
+
+.form-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    place-content: center;
+    background-color: white;
+    border-radius: 1em 0 0 1em;
+    box-shadow: var(--shadow);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    place-content: center;
+    align-items: center;
+    background-image: url(../img/3d-abstract-flow-background.jpg);
+    background-size: cover;
+    color: whitesmoke;
+    border-radius: 0 1em 1em 0;
+}
+
+.container .content {
+    width: 60%;
+}
+
+.form-content form {
+    display: flex;
+    flex-direction: column;
+    width:80%;
+}
+
+form > input,
+form > input[type="button"] {
+    height: 2em;
+    margin: 0.3em 0 1.2em 0;
+    font-size: inherit;
+    padding: 0.2em 0.5em;
+    height: 45px;
+}
+
+form p {
+    margin: 1em 0;
+}
+
+.form-content > p {
+    margin: 0 0 1.5em 0;
+    text-align: center;
+}
+
+.form-content .logo {
+    display: flex;
+    align-items: center;
+    margin: 0 0 2rem 0;
+    font-size: 0.7em;
+}
+
+.form-content .logo img {
+    width: 15%;
+    margin-right: 5px;
+    height: auto;
+}
+
+.container h2 {
+    line-height: 2rem;
+}
+
+/* Styling Text field contents and looks */
+form > input {
+    border: var(--default-border);
+    border-radius: 0.3em;
+    outline: none;
+    height: 40px;
+}
+
+form > input:focus,
+form > input:hover {
+    transition: ease-in 500ms;
+    border: 1px solid #0d1236;
+}
+
+/* Styling the Validation of inputs */
+/* add disabled attribute on javascript or PHP when sending a request in order to disable 
+both the input and send button to avoid repitition of sending request to the server. */
+:disabled {
+    cursor: not-allowed;
+    border: 1px solid light-gray;
+}
+
+input:is(:disabled):hover {
+    border: var(--default-border);
+}
+
+input[type]:required:hover,
+input:required:focus {
+    border-inline: 0.2em solid orange;
+}
+
+.container .signs {
+    position: relative;
+    top: -20%;
+    border: 1px solid red;
+    height: 15%;
+    max-width: 80%;
+    background: hsla(197, 10%, 86%, 0.492);
+    border-radius: 0.5em;
+    color: goldenrod;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    place-content: space-evenly;
+    padding: 0.6rem;
+}
+
+.container .signs > h5 {
+    font: caption;
+    font-size: 0.8em;
+    text-wrap: wrap;
+    text-align: center;
+    color: whitesmoke;
+    margin: 0.5em 0;
+}
+
+.container .signs {
+    display: none;
+}
+
+form > input[type="button"] {
+    margin: 1em 0;
+    border: none;
+    border-radius: 0.5em;
+    background-color: #0d1236;
+    color: whitesmoke;
+}
+
+/* Removing the two arrows on the input-number field. */
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+form #password {
+    -moz-appearance: textfield;
+    -webkit-text-security: square;
+}
+/* --------------------------------- */
+
+/* Phone View */
+/* SMALL */
+@media screen and (max-width: 560px) {
+    body {
+        place-content: center;
+        padding: 1.4em;
+        font-size: 0.9rem;
+    }
+
+    .form-content .logo,
+    .container .content {
+        display: none;
+    }
+
+    body > img {
+        display: inline-block;
+        width: 12%;
+        height: auto;
+    }
+
+    body > h5:first-of-type {
+        display: block;
+    }
+
+    main {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        place-content: center;
+        width: 100%;
+    }
+
+    main .container {
+        position: absolute;
+        top: calc(85vh - 65%);
+        height: 85vh;
+        border-radius: 0.8em;
+        z-index: 0;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
+    main .form-content {
+        font-size: 0.9111em;
+        position: relative;
+        border-radius: 0.2em;
+        z-index: 2;
+        height: auto;
+        width: 100%;
+        background:white;
+        padding-top: 50px;
+    }
+
+    .form-content form {
+        align-items: center;
+        width: 90%;
+    }
+
+    .form-content form input:not(input[type="button"]) {
+        background-color: rgba(100%, 100%, 100%, 0.2);
+        border: var(--default-border);
+        color: rgb(9, 16, 56);
+        height: 45px!important;
+    }
+
+    .form-content form input,
+    form label,
+    form input[type="button"] {
+        width: 100%;
+    }
+
+    /* Styling the Validation of inputs */
+    .container {
+        place-content: end;
+    }
+    .container .signs {
+        height: 13%;
+        width: 80%;
+        margin: 0.5em 0;
+        position: initial;
+    }
+    .container .signs h5 {
+        margin: 0.5em 0;
+    }
+}
